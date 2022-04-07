@@ -1,10 +1,7 @@
-FROM ubuntu:latest
+FROM fedora:latest
 
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt update && apt upgrade -y
-RUN apt install git python3-pip ffmpeg megatools -y
-RUN apt -qq install -y --no-install-recommends megatools
+RUN dnf upgrade -y
+RUN dnf install git python3-pip ffmpeg megatools -y
 RUN pip3 install -U pip
 RUN mkdir /app/
 WORKDIR /app/
